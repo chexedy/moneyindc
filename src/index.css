@@ -1,0 +1,117 @@
+@import url("https://use.typekit.net/eyr0xhg.css");
+
+:root {
+  --color1: #ABACAD;
+  --color2: #ffffff;
+  --color3: #2E3133;
+  --color4: #353839;
+}
+
+.title {
+  color: var(--color2);
+  font-size: 5vh;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 4vh;
+  }
+}
+
+@font-face {
+  font-family: "Warsaw Gothic", sans-serif;
+  src: url("./fonts/warsawgothic.woff2");
+  font-weight: normal;
+}
+
+.sofia-pro {
+  font-family: "sofia-pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sofia-pro-italic {
+  font-family: "sofia-pro", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.sofia-pro-bold {
+  font-family: "sofia-pro", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.sofia-pro-bold-italic {
+  font-family: "sofia-pro", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  background-color: var(--color1);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "sofia-pro", sans-serif;
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
