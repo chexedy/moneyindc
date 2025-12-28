@@ -9,13 +9,46 @@
 
 .title {
   color: var(--color2);
-  font-size: 5vh;
   text-align: center;
+  background-color: var(--color4);
+  margin: 5vh 20vh;
+  border-radius: 25px;
 }
 
-@media (max-width: 767px) {
+.title h1 {
+  font-size: 10vh;
+}
+
+.body {
+  color: var(--color2);
+  text-align: left;
+  background-color: var(--color4);
+  margin: 5vh 20vh;
+  padding: 5vh 5vh;
+  border-radius: 25px;
+}
+
+.body p {
+  font-size: 3vh;
+}
+
+@media (max-width: 1024px) {
   .title {
-    font-size: 4vh;
+    margin: 4vh 3vh;
+    padding: 1vh 3vh;
+  }
+
+  .title h1 {
+    font-size: 8vh;
+  }
+
+  .body {
+    margin: 4vh 3vh;
+    padding: 3vh;
+  }
+
+  .body p {
+    font-size: 2vh;
   }
 }
 

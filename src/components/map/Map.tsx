@@ -22,7 +22,6 @@ export default function Map() {
             style: "https://tiles.openfreemap.org/styles/bright",
             maxBounds: bounds,
             minZoom: 4,
-            maxZoom: 10,
             attributionControl: false,
         });
 
@@ -55,7 +54,7 @@ export default function Map() {
                     'line-color': '#222',
                     'line-width': 2.5,
                 },
-                maxzoom: 8,
+                maxzoom: 7,
             });
 
             map.addSource('districts', {
@@ -71,7 +70,7 @@ export default function Map() {
                     'line-color': '#222',
                     'line-width': 2.5,
                 },
-                minzoom: 8,
+                minzoom: 7,
             });
 
             map.addLayer({
@@ -79,15 +78,20 @@ export default function Map() {
                 type: 'symbol',
                 source: 'districts',
                 layout: {
-                    'text-field': ['get', 'id'],
+                    'text-field': [
+                        'concat',
+                        ['slice', ['get', 'id'], 0, 2],
+                        '-',
+                        ['slice', ['get', 'id'], 2, 4]
+                    ],
                     'text-size': 14,
                     'text-anchor': 'center',
-                    'text-allow-overlap': true,
+                    'text-allow-overlap': false,
                 },
                 paint: {
                     'text-color': '#222',
                 },
-                minzoom: 8,
+                minzoom: 7,
             });
         });
     }, []);

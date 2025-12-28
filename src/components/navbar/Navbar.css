@@ -39,7 +39,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color1);
+    background-color: var(--color2);
     color: var(--color4);
     border-radius: 0.5vh;
     font-size: 4vh;
