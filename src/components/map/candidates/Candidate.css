@@ -1,0 +1,114 @@
+.candidate-holder {
+    position: absolute;
+    bottom: 5vh;
+    left: 10vh;
+    z-index: 10;
+    pointer-events: auto;
+    width: 30vw;
+
+    background-color: var(--color4);
+    padding: 20px 30px;
+    border-radius: 12px;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    transition: opacity 1s linear;
+}
+
+.candidate-holder h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 3rem;
+    color: var(--color2);
+}
+
+.candidate-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5vh;
+    margin: 2.5vh 2vh;
+    overflow-y: auto;
+}
+
+.close-button {
+    margin-top: auto;
+    align-self: center;
+    display: flex;
+    align-items: center;
+
+    background: red;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color2);
+    font-family: "sofia-pro", sans-serif;
+    padding: 0.75vh 2vh;
+    border-radius: 15px;
+}
+
+.close-button:active {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
+
+.candidate-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background-color: var(--color1);
+    cursor: pointer;
+    font-family: "sofia-pro", sans-serif;
+    transition: opacity 1s linear;
+}
+
+.candidate-info__img {
+    width: 7.5vh;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.candidate-info__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.candidate-info__name {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color2);
+}
+
+.candidate-info__meta {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    color: var(--color2);
+}
+
+@media screen and (max-width: 1024px) {
+    .candidate-holder {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .candidate-holder {
+        width: 90vw;
+    }
+
+    .candidate-holder h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--color2);
+    }
+}

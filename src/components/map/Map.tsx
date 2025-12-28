@@ -3,6 +3,8 @@ import "./Map.css";
 import maplibregl from "maplibre-gl";
 import { useEffect, useRef } from "react";
 
+import Candidate from "./candidates/Candidate.tsx";
+
 export default function Map() {
     const mapContainer = useRef<HTMLDivElement | null>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
@@ -99,6 +101,8 @@ export default function Map() {
     return (
         <div>
             <div ref={mapContainer} className="map-container" />
+
+            <Candidate />
         </div>
     )
 }

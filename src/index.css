@@ -52,12 +52,6 @@
   }
 }
 
-@font-face {
-  font-family: "Warsaw Gothic", sans-serif;
-  src: url("./fonts/warsawgothic.woff2");
-  font-weight: normal;
-}
-
 .sofia-pro {
   font-family: "sofia-pro", sans-serif;
   font-weight: 400;
