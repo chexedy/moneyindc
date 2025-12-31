@@ -9,19 +9,45 @@ export default function About() {
 
             <div className="body">
                 <p>
-                    This project provides a visual and educational overview of publicly available political campaign finance data in the United States. The information displayed is derived from official government sources, including the Federal Election Commission (FEC), and is presented for transparency, research, and informational purposes only.
+                    This project provides a visual and educational overview of publicly available political campaign finance data in the United States. It is designed to help users explore how corporate and organizational campaign funding intersects with elected offices at the federal level.
                     <br />
                     <br />
-                    The scores and summaries shown on this site are independently generated classifications based solely on reported contribution totals and filing data. They do not allege wrongdoing, illegality, or unethical behavior by any individual or organization. Campaign contributions are legal under U.S. law and are a common part of the electoral process.
+                    This project provides a visual and educational overview of publicly available political campaign finance data in the United States. It is designed to help users explore how corporate and organizational campaign funding intersects with elected offices at the federal level.
                     <br />
                     <br />
-                    All data is displayed as reported by candidates, committees, and organizations at the time of filing. While efforts are made to keep information current and accurate, this site does not guarantee completeness or real-time accuracy. Users are encouraged to consult original government records for official or legal use.
+                    All information displayed on this site is derived from official government sources, primarily the Federal Election Commission (FEC). The data is presented in an accessible, map-based format to promote transparency and public understanding of campaign finance disclosures.
+                </p>
+            </div>
+
+            <div className="title">
+                <h1>Using the Site</h1>
+            </div>
+
+            <div className="body">
+                <p>
+                    Users can interact with the map to explore campaign finance data by location and office. Clicking on a state reveals information about its U.S. Senators, while selecting a congressional district displays data for its Representative. Selecting the White House shows information related to the President and Vice President.
                     <br />
                     <br />
-                    This project is non-partisan, unaffiliated with any political party, candidate, or government agency, and is intended to promote public understanding of campaign finance disclosures through accessible visualization.
+                    Each official is assigned a letter grade based on reported corporate and PAC campaign contributions, scaled relative to the power of their office. These scores are intended to provide context and comparison, not judgment.
                     <br />
                     <br />
-                    Whether this system serves voters at all, rather than those with the most money to spend, is increasingly questioned.
+                    Additional views allow users to explore contributing organizations and see how funding is distributed across offices and regions.
+                </p>
+            </div>
+
+            <div className="title">
+                <h1>Legal</h1>
+            </div>
+
+            <div className="body">
+                <p>
+                    All scores, summaries, and classifications shown on this site are independently generated using publicly reported campaign finance data filed with the Federal Election Commission. They do not allege wrongdoing, illegality, or unethical behavior by any individual or organization. Campaign contributions are legal under U.S. law and are a standard part of the electoral process.
+                    <br />
+                    <br />
+                    Data is displayed as reported by candidates, committees, and organizations at the time of filing. While efforts are made to keep information accurate and up to date, this site does not guarantee completeness, real-time accuracy, or suitability for legal use. Users should consult official government records for verification or formal research.
+                    <br />
+                    <br />
+                    This project is provided for informational and educational purposes only. It does not constitute political advocacy, legal advice, or endorsement of any candidate or policy.
                 </p>
             </div>
         </div>

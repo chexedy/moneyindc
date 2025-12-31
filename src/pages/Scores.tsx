@@ -9,7 +9,7 @@ export default function Scores() {
             </div>
 
             <div className="body">
-                <p>Scores reflect the level of financial influence on an elected official relative to the power of their office. Each official is assigned a letter grade from S to F based on the total amount of campaign money they have accepted as reported to the Federal Election Commission. An S indicates no reported contributions, while lower grades represent increasing levels of financial influence. Because different offices operate at different scales, scoring thresholds vary for Representatives, Senators, and the Executive branch to ensure fair comparisons. These scores measure reported campaign funding only and do not account for unreported or independent expenditures.</p>
+                <p>Scores reflect the level of corporate financial influence on an elected official relative to the power of their office. Each official is assigned a letter grade from S to F based on the total amount of corporate and PAC campaign contributions they have accepted, as reported to the Federal Election Commission. An S indicates no reported corporate contributions, while lower grades represent increasing levels of corporate financial involvement. Because different offices operate at different scales, scoring thresholds vary for Representatives, Senators, and the Executive branch to ensure fair comparisons. These scores reflect reported corporate-related campaign funding only and do not include individual donations, independent expenditures, or unreported activity.</p>
             </div>
 
             <div className="score-table-wrapper">
