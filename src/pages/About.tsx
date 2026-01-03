@@ -50,6 +50,29 @@ export default function About() {
                     This project is provided for informational and educational purposes only. It does not constitute political advocacy, legal advice, or endorsement of any candidate or policy.
                 </p>
             </div>
+
+            <div className="title">
+                <h1>Data</h1>
+            </div>
+
+            <div className="body">
+                <p>
+                    All data is sourced from the <a href="https://www.fec.gov/" target="_blank">Federal Election Commission (FEC)</a> and <a href="https://www.indepthgov.com/" target="_blank">InDepthGov</a>.
+                    <br />
+                    <br />
+                    Data was last updated on:
+                </p>
+            </div>
+
+            <div className="title">
+                <h1>Contact</h1>
+            </div>
+
+            <div className="body">
+                <p>
+                    For questions, feedback, or media inquiries, please make an issue on the site's <a href="https://github.com/chexedy/uslobbying" target="_blank">GitHub</a>. Please be clear and concise about the problem, and I will look into the issue ASAP.
+                </p>
+            </div>
         </div>
     )
 }

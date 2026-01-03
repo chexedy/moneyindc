@@ -1,11 +1,14 @@
 import "./Map.css";
 
 import maplibregl from "maplibre-gl";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Candidate from "./candidates/Candidate.tsx";
 
 export default function Map() {
+    const [isCandidateOpen, setCandidateOpen] = useState(false);
+    const [isHolderOpen, setHolderOpen] = useState(false);
+
     const mapContainer = useRef<HTMLDivElement | null>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
 
@@ -101,8 +104,6 @@ export default function Map() {
     return (
         <div>
             <div ref={mapContainer} className="map-container" />
-
-            <Candidate />
         </div>
     )
 }

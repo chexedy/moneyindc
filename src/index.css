@@ -32,6 +32,12 @@
   font-size: 3vh;
 }
 
+.body a:link,
+.body a:visited {
+  color: var(--color1);
+  text-decoration: underline;
+}
+
 @media (max-width: 1024px) {
   .title {
     margin: 4vh 3vh;
@@ -39,7 +45,7 @@
   }
 
   .title h1 {
-    font-size: 8vh;
+    font-size: 5vh;
   }
 
   .body {
