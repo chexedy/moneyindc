@@ -1,5 +1,5 @@
 import "./Candidate.css";
-import { CandidateInfo } from "../candidates";
+// import { CandidateInfo } from "../candidates";
 
 export default function CandidateHolder() {
     return (

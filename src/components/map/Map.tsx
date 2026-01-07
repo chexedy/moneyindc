@@ -1,12 +1,12 @@
 import "./Map.css";
 
 import maplibregl from "maplibre-gl";
-import { useState, useEffect, useRef } from "react";
-import { Candidate, CandidateHolder, CandidateInfo } from "./candidates";
+import { useEffect, useRef } from "react";
+// import { Candidate, CandidateHolder, CandidateInfo } from "./candidates";
 
 export default function Map() {
-    const [isCandidateOpen, setCandidateOpen] = useState(false);
-    const [isHolderOpen, setHolderOpen] = useState(false);
+    // const [isCandidateOpen, setCandidateOpen] = useState(false);
+    // const [isHolderOpen, setHolderOpen] = useState(false);
 
     const mapContainer = useRef<HTMLDivElement | null>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
