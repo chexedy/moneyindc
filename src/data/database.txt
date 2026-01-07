@@ -22,12 +22,12 @@ CREATE TABLE multi_candidates (
 );
 
 CREATE TABLE sectors (
-    sector_id SERIAL PRIMARY KEY,
+    sector_id INTEGER PRIMARY KEY,
     sector_name TEXT UNIQUE NOT NULL
 );
 
 CREATE TABLE industries (
-    industry_id SERIAL PRIMARY KEY,
+    industry_id INTEGER PRIMARY KEY,
     industry_name TEXT UNIQUE NOT NULL,
     sector_id INTEGER NOT NULL,
     FOREIGN KEY (sector_id) REFERENCES sectors(sector_id)
@@ -61,7 +61,7 @@ CREATE TABLE contributions_raw (
 );
 
 CREATE TABLE classification_rules (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
     match_field TEXT NOT NULL CHECK (
         match_field IN ('employer', 'occupation', 'committee')
     ),
