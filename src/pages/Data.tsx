@@ -1,6 +1,27 @@
 import "./Data.css";
+import { useQuery } from '@tanstack/react-query';
 
 export default function Data() {
+    const {
+        data: sectorandindustries,
+        isSuccess,
+        isLoading,
+        isError,
+    } = useQuery({
+        queryKey: ['sectorandindustry'],
+        staleTime: Infinity,
+        queryFn: async () => {
+            const response = await fetch('https://uslobbying-api.ayaan7m.workers.dev/sectorandindustry');
+            return (await response.json());
+        }
+    });
+
+    console.log("Data last updated:", sectorandindustries);
+    interface sector_industry {
+        sector_name: string;
+        industries: string;
+    }
+
     return (
         <div className="data">
             <div className="title">
@@ -151,14 +172,22 @@ export default function Data() {
                     <br />
                     <br />
 
-                    The classification system consists of:
+                    <details>
+                        <summary> View Sectors and Industries </summary>
+                        {isError && (<span> Error loading sector and industry data.</span>)}
+                        {isLoading && <span> Loading sector and industry data...</span>}
 
-                    <br />
-
-                    <ul>
-                        <li><b>Sectors</b> (e.g. Finance, Health, Technology)</li>
-                        <li><b>Industries</b> within each sector (e.g. Insurance, Pharmaceuticals, Big Tech Platforms)</li>
-                    </ul>
+                        {isSuccess && sectorandindustries.data.map((item: sector_industry) => (
+                            <details name="sectorandindustries">
+                                <summary><b>{item.sector_name}</b></summary>
+                                <ul>
+                                    {item.industries.split(', ').map((industry: string) => (
+                                        <li>{industry}</li>
+                                    ))}
+                                </ul>
+                            </details>
+                        ))}
+                    </details>
 
                     <br />
 

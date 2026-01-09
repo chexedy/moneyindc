@@ -83,11 +83,12 @@ export default function About() {
 
                 <h1>
                     Data was last updated on:
-                    {isLoading && <span> Loading...</span>}
-                    {isError && <span> Error fetching data. Try again later.</span>}
                 </h1>
 
                 <p>
+                    {isLoading && <span> Loading...</span>}
+                    {isError && <span> Error fetching data. Try again later.</span>}
+
                     {isSuccess && (
                         <ul>
                             {last_updated.data.map((table: data_updates) => (
@@ -96,7 +97,7 @@ export default function About() {
                         </ul>
                     )}
 
-                    The date is in your local timezone.
+                    These are in your local timezone.
                 </p>
             </div>
 
@@ -107,6 +108,11 @@ export default function About() {
             <div className="body">
                 <p>
                     For questions, feedback, or media inquiries, please make an issue on the site's <a href="https://github.com/chexedy/politicalmoneymap" target="_blank">GitHub</a>. Please be clear and concise about the problem, and I will look into the issue ASAP.
+
+                    <br />
+                    <br />
+
+                    &copy; chexedy incorporated (Real)
                 </p>
             </div>
         </div>
