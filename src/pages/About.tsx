@@ -19,8 +19,8 @@ export default function About() {
     });
 
     interface data_updates {
-        table_name: string;
         last_updated: string;
+        description: string;
     }
 
     return (
@@ -82,7 +82,7 @@ export default function About() {
                 </p>
 
                 <h1>
-                    Data was last updated on:
+                    Last Updated:
                 </h1>
 
                 <p>
@@ -92,7 +92,7 @@ export default function About() {
                     {isSuccess && (
                         <ul>
                             {last_updated.data.map((table: data_updates) => (
-                                <li> {table.table_name} - {convertSQLTimetoText(table.last_updated)}</li>
+                                <li> {table.description} - {convertSQLTimetoText(table.last_updated)}</li>
                             ))}
                         </ul>
                     )}

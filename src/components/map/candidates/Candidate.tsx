@@ -1,20 +1,66 @@
 import "./Candidate.css";
-import { STATE_2CHAR } from "../../../data/info";
 import type { CandidateProps } from "../../../data/props";
+import { useQuery } from '@tanstack/react-query';
 
 // This is the actual Candidate component with their information
 export default function Candidate({
-    bioguide_id,
-    name,
+    id,
     state,
     district,
-    party,
-    office,
+    closeCandidate,
 }: CandidateProps) {
-    const stateLabel =
-        state in STATE_2CHAR
-            ? STATE_2CHAR[state as keyof typeof STATE_2CHAR]
-            : state;
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ["candidate", id ?? `${state}-${district}`],
+        enabled: !!(id || (state && district !== null)),
+        queryFn: async () => {
+            const params = new URLSearchParams();
+
+            if (id) params.set("id", id.toString());
+            else {
+                params.set("state", state);
+                params.set("district", district!.toString());
+            }
+
+            const res = await fetch(`https://uslobbying-api.ayaan7m.workers.dev/getprofile?${params}`);
+            return res.json();
+        },
+    });
+
+    if (isLoading) {
+        return (
+            <div className="candidate-profile">
+                <div className="candidate-header">
+                    <h2>Loading Candidate...</h2>
+                </div>
+
+                <button className="close-button" onClick={closeCandidate}>
+                    Close Profile
+                </button>
+            </div>
+        );
+    }
+
+    if (isError || data.error || !data) {
+        return (
+            <div className="candidate-profile">
+                <div className="candidate-header">
+                    <h2>Error loading candidate data. <br />Refresh and try again, contact me on <a href="https://github.com/chexedy/politicalmoneymap" target="_blank">GitHub</a> if it continues to fail.</h2>
+                </div>
+
+                <button className="close-button" onClick={closeCandidate}>
+                    Close Profile
+                </button>
+            </div>
+        );
+    }
+
+    const {
+        name,
+        party,
+        office,
+        bioguide_id,
+        fec_id,
+    } = data.profile;
 
     return (
         <div className="candidate-profile">
@@ -30,13 +76,13 @@ export default function Candidate({
 
                     {office === "SENATE" && (
                         <div className="candidate-role">
-                            U.S. Senator for {stateLabel}
+                            Senator for {state}
                         </div>
                     )}
 
                     {office === "HOUSE" && (
                         <div className="candidate-role">
-                            U.S. Representative — {stateLabel}-{district}
+                            Rep. for {state}-{district}
                         </div>
                     )}
 
@@ -44,9 +90,9 @@ export default function Candidate({
                 </div>
             </div>
 
-            <h6 className="candidate-id">BioGuide ID: {bioguide_id} | FEC ID: { }</h6>
+            <h6 className="candidate-id">BioGuide ID: {bioguide_id} | FEC ID: {fec_id}</h6>
 
-            <button className="close-button">
+            <button className="close-button" onClick={closeCandidate}>
                 Close Profile
             </button>
         </div>

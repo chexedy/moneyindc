@@ -1,12 +1,35 @@
 import "./Map.css";
 
 import maplibregl from "maplibre-gl";
-import { useEffect, useRef } from "react";
-// import { Candidate, CandidateHolder, CandidateInfo } from "./candidates";
+import { useState, useEffect, useRef } from "react";
+import { Candidate, CandidateHolder } from "./candidates";
 
 export default function Map() {
-    // const [isCandidateOpen, setCandidateOpen] = useState(false);
-    // const [isHolderOpen, setHolderOpen] = useState(false);
+    interface currentState {
+        id: number | null;
+        state: string;
+        district: string | null;
+    }
+
+    const [isCandidateOpen, setCandidateOpen] = useState(false);
+    const [isHolderOpen, setHolderOpen] = useState(false);
+    const [current, setCurrent] = useState<currentState>({ id: null, state: "", district: null });
+
+    const closeHolder = () => {
+        setHolderOpen(false);
+    }
+
+    const closeCandidate = () => {
+        setCandidateOpen(false);
+    }
+
+    const setCurrentID = (id: number) => {
+        setCurrent({ id: id, state: current.state, district: current.district });
+        setHolderOpen(false);
+
+        setCandidateOpen(true);
+        console.log("Set current ID to:", id);
+    }
 
     const mapContainer = useRef<HTMLDivElement | null>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
@@ -50,6 +73,21 @@ export default function Map() {
                 data: '/geojson/states.geojson'
             });
 
+            map.addSource('state_centers', {
+                type: 'geojson',
+                data: '/geojson/state_centers.geojson'
+            })
+
+            map.addLayer({
+                id: 'states',
+                type: 'fill',
+                source: 'states',
+                paint: {
+                    'fill-opacity': 0,
+                },
+                maxzoom: 7,
+            })
+
             map.addLayer({
                 id: 'states-borders',
                 type: 'line',
@@ -61,10 +99,37 @@ export default function Map() {
                 maxzoom: 7,
             });
 
+            map.addLayer({
+                id: 'states-labels',
+                type: 'symbol',
+                source: 'state_centers',
+                layout: {
+                    'text-field': ['get', 'name'],
+                    'text-size': 18,
+                    'text-anchor': 'center',
+                    'text-allow-overlap': false,
+
+                },
+                paint: {
+                    'text-color': '#222',
+                },
+                maxzoom: 7,
+            });
+
             map.addSource('districts', {
                 type: 'geojson',
                 data: '/geojson/districts.geojson'
             });
+
+            map.addLayer({
+                id: 'districts',
+                type: 'fill',
+                source: 'districts',
+                paint: {
+                    'fill-opacity': 0,
+                },
+                minzoom: 7,
+            })
 
             map.addLayer({
                 id: 'district-borders',
@@ -97,6 +162,38 @@ export default function Map() {
                 },
                 minzoom: 7,
             });
+
+            map.on('mouseenter', 'states', () => {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            map.on('mouseleave', 'states', () => {
+                map.getCanvas().style.cursor = '';
+            });
+
+            map.on('mouseenter', 'districts', () => {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            map.on('mouseleave', 'districts', () => {
+                map.getCanvas().style.cursor = '';
+            });
+
+            map.on('click', 'states', (e) => {
+                console.log("Clicked state:", e.features?.[0].properties.name);
+
+                setCandidateOpen(false);
+                setHolderOpen(true);
+                setCurrent({ id: null, state: e.features?.[0].properties.abbreviation, district: null });
+            });
+
+            map.on('click', 'districts', (e) => {
+                console.log("Clicked district:", e.features?.[0].properties.id);
+
+                setHolderOpen(false);
+                setCandidateOpen(true);
+                setCurrent({ id: null, state: e.features?.[0].properties.id.substring(0, 2), district: e.features?.[0].properties.id.substring(2) });
+            });
         });
     }, []);
 
@@ -104,8 +201,15 @@ export default function Map() {
         <div>
             <div ref={mapContainer} className="map-container" />
 
-            {/* <CandidateHolder /> */}
-            {/* <Candidate bioguide_id="B001288" name="Cory A. Booker" state="NJ" district={null} party="Democrat" office="SENATE" /> */}
+            {isHolderOpen && (
+                <CandidateHolder state={current.state} closeHolder={closeHolder} setCurrentID={setCurrentID} />
+            )}
+
+            {isCandidateOpen && (
+                <Candidate id={current.id} state={current.state} district={current.district} closeCandidate={closeCandidate} />
+            )}
+
+            {/* <Candidate id={61} state="NJ" district={null} closeCandidate={closeCandidate} /> */}
         </div>
     )
 }

@@ -32,6 +32,13 @@
     overflow-y: auto;
 }
 
+.candidate-list p {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--color2);
+}
+
 /* Candidate Info */
 .candidate-info {
     display: flex;
@@ -94,6 +101,12 @@
     padding: 16px;
     border-radius: 10px;
     background-color: var(--color2);
+}
+
+.candidate-header a:link,
+.candidate-header a:visited {
+    color: var(--color3);
+    text-decoration: underline;
 }
 
 .candidate-image {
@@ -172,6 +185,13 @@
     .candidate-holder h1 {
         margin: 0;
         font-size: 1.5rem;
+    }
+
+    .candidate-list p {
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+        color: var(--color2);
     }
 
     .candidate-info h2 {

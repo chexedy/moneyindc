@@ -4,11 +4,13 @@ import { PARTIES, STATE_2CHAR } from "../../../data/info";
 
 // This is the tiny candidate card that appears in the holder for areas with multiple candidates
 export default function CandidateInfo({
+    id,
     name,
     state,
     district,
     party,
     office,
+    setCurrentID,
 }: CandidateInfoProps) {
     const partyLabel =
         party in PARTIES
@@ -31,7 +33,7 @@ export default function CandidateInfo({
                 <h3>Representative ({partyLabel}) for {state + "-" + district}</h3>
             )}
 
-            <button>
+            <button onClick={() => setCurrentID(id)}>
                 Select this Politician
             </button>
         </div>
