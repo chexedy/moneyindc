@@ -13,7 +13,7 @@ export default function About() {
         queryKey: ['last_updated'],
         staleTime: Infinity,
         queryFn: async () => {
-            const response = await fetch('https://uslobbying-api.ayaan7m.workers.dev/dataupdates');
+            const response = await fetch('https://moneyindc.ayaan7m.workers.dev/dataupdates');
             return (await response.json());
         }
     });
@@ -76,7 +76,7 @@ export default function About() {
 
             <div className="body">
                 <p>
-                    All data is sourced from the <a href="https://www.fec.gov/" target="_blank">Federal Election Commission (FEC)</a> and the <a href="https://unitedstates.github.io/" target="_blank">@unitedstates</a> project.
+                    All data is sourced from the <a href="https://www.fec.gov/" target="_blank">Federal Election Commission (FEC)</a> and the <a href="https://unitedstates.github.io/" target="_blank">@unitedstates</a> project. If anything candidate profile related (name, image, party, etc.) is missing or incorrect, it is likely an issue with the @unitedstates data, and you should contact them directly.
                     <br />
                     <br />
                 </p>
@@ -107,7 +107,7 @@ export default function About() {
 
             <div className="body">
                 <p>
-                    For questions, feedback, or media inquiries, please make an issue on the site's <a href="https://github.com/chexedy/politicalmoneymap" target="_blank">GitHub</a>. Please be clear and concise about the problem, and I will look into the issue ASAP.
+                    For questions, feedback, or media inquiries, please make an issue on the site's <a href="https://github.com/chexedy/moneyindc" target="_blank">GitHub</a>. Please be clear and concise about the problem, and I will look into the issue ASAP.
 
                     <br />
                     <br />

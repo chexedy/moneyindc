@@ -13,7 +13,7 @@ export default function CandidateHolder({ state, closeHolder, setCurrentID }: { 
         staleTime: Infinity,
         queryFn: async () => {
             const response = await fetch(
-                'https://uslobbying-api.ayaan7m.workers.dev/getmulticandidates?state=' + state
+                'https://moneyindc.ayaan7m.workers.dev/getmulticandidates?state=' + state
             );
 
             const raw = (await response.json()).row;

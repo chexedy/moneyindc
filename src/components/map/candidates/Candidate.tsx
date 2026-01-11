@@ -21,7 +21,7 @@ export default function Candidate({
                 params.set("district", district!.toString());
             }
 
-            const res = await fetch(`https://uslobbying-api.ayaan7m.workers.dev/getprofile?${params}`);
+            const res = await fetch(`https://moneyindc.ayaan7m.workers.dev/getprofile?${params}`);
             return res.json();
         },
     });
@@ -44,7 +44,7 @@ export default function Candidate({
         return (
             <div className="candidate-profile">
                 <div className="candidate-header">
-                    <h2>Error loading candidate data. <br />Refresh and try again, contact me on <a href="https://github.com/chexedy/politicalmoneymap" target="_blank">GitHub</a> if it continues to fail.</h2>
+                    <h2>Error loading candidate data. <br />Refresh and try again, contact me on <a href="https://github.com/chexedy/moneyindc" target="_blank">GitHub</a> if it continues to fail.</h2>
                 </div>
 
                 <button className="close-button" onClick={closeCandidate}>
@@ -62,6 +62,10 @@ export default function Candidate({
         fec_id,
     } = data.profile;
 
+    if (district === "00") {
+        district = "01";
+    }
+
     return (
         <div className="candidate-profile">
             <div className="candidate-header">
@@ -69,6 +73,10 @@ export default function Candidate({
                     src={`https://unitedstates.github.io/images/congress/450x550/${bioguide_id}.jpg`}
                     alt={`${name}'s Portrait`}
                     className="candidate-image"
+                    onError={({ currentTarget }) => {
+                        currentTarget.onerror = null;
+                        currentTarget.src = "images/noportrait.png";
+                    }}
                 />
 
                 <div className="candidate-bio">

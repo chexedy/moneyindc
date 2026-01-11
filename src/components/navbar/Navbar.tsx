@@ -8,7 +8,7 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <div className="navbar-title">
-                <h1>Political Money Map</h1>
+                <h1>Money In DC</h1>
             </div>
 
             <div className="navbar-hamburger" onClick={() => setMenuOpen(prev => !prev)}>

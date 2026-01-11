@@ -149,9 +149,9 @@ export default function Map() {
                 layout: {
                     'text-field': [
                         'concat',
-                        ['slice', ['get', 'id'], 0, 2],
+                        ['slice', ['get', 'name'], 0, 2],
                         '-',
-                        ['slice', ['get', 'id'], 2, 4]
+                        ['slice', ['get', 'name'], 2, 4]
                     ],
                     'text-size': 14,
                     'text-anchor': 'center',

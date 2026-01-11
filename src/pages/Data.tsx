@@ -11,7 +11,7 @@ export default function Data() {
         queryKey: ['sectorandindustry'],
         staleTime: Infinity,
         queryFn: async () => {
-            const response = await fetch('https://uslobbying-api.ayaan7m.workers.dev/sectorandindustry');
+            const response = await fetch('https://moneyindc.ayaan7m.workers.dev/sectorandindustry');
             return (await response.json());
         }
     });
