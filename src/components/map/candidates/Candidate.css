@@ -80,7 +80,7 @@
     position: absolute;
     bottom: 5vh;
     left: 10vh;
-    z-index: 10;
+    z-index: 25;
     pointer-events: auto;
     width: 30vw;
 
@@ -139,6 +139,12 @@
 }
 
 .candidate-party {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color4);
+}
+
+.candidate-year {
     font-size: 1rem;
     font-weight: 400;
     color: var(--color4);
@@ -222,7 +228,7 @@
 
     .candidate-holder,
     .candidate-profile {
-        width: 80vw;
+        width: 60vw;
     }
 
     .candidate-info h2 {

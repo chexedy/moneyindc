@@ -60,6 +60,7 @@ export default function Candidate({
         office,
         bioguide_id,
         fec_id,
+        latest_cycle,
     } = data.profile;
 
     if (district === "00") {
@@ -95,6 +96,7 @@ export default function Candidate({
                     )}
 
                     <div className="candidate-party">{party}</div>
+                    <div className="candidate-year">Latest Term: {latest_cycle}</div>
                 </div>
             </div>
 
