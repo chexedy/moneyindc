@@ -30,6 +30,8 @@ export default function About() {
             </div>
 
             <div className="body">
+                <img src="images/logo_rect.png" alt="Site Logo"></img>
+
                 <p>
                     This project provides a visual and educational overview of publicly available political campaign finance data in the United States. It is designed to help users explore how corporate and organizational campaign funding intersects with elected offices at the federal level.
                     <br />

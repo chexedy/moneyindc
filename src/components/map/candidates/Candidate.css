@@ -3,7 +3,7 @@
     position: absolute;
     bottom: 5vh;
     left: 10vh;
-    z-index: 10;
+    z-index: 25;
     pointer-events: auto;
     width: 30vw;
 

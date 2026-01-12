@@ -8,6 +8,7 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <div className="navbar-title">
+                <img src="images/logo_square.png" alt="Site Logo" className="navbar-logo" />
                 <h1>Money In DC</h1>
             </div>
 

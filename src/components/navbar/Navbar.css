@@ -12,10 +12,21 @@
 }
 
 .navbar-title {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+
     margin: 0 5vh;
     font-size: 3vh;
     color: var(--color2);
     white-space: nowrap;
+}
+
+.navbar-logo {
+    height: 12vh;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .navbar-buttons {
