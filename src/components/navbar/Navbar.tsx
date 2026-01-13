@@ -23,7 +23,7 @@ export default function Navbar() {
                 <Link to="/" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Home</Link>
                 <Link to="/data" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Data</Link>
                 <Link to="/groups" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Groups</Link>
-                <Link to="/scores" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Scores</Link>
+                {/* <Link to="/scores" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Scores</Link> */}
                 <Link to="/about" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">About</Link>
             </div>
         </div>

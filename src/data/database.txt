@@ -42,6 +42,7 @@ CREATE TABLE committees (
     committee_type TEXT,
     industry_id INTEGER,
     sector_id INTEGER,
+    is_current BOOLEAN,
     FOREIGN KEY (industry_id) REFERENCES industries(industry_id),
     FOREIGN KEY (sector_id) REFERENCES sectors(sector_id)
 );
