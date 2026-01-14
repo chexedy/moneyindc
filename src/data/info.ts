@@ -10,7 +10,7 @@ export const PARTIES_PLURAL = {
     "Independent": "Independent"
 }
 
-export const STATE_2CHAR = {
+export const STATE_2CHAR: { [key: string]: string } = {
     AL: "Alabama",
     AK: "Alaska",
     AZ: "Arizona",
