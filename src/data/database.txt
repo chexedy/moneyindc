@@ -43,6 +43,8 @@ CREATE TABLE committees (
     industry_id INTEGER,
     sector_id INTEGER,
     is_current BOOLEAN,
+    is_stub BOOLEAN,
+    
     FOREIGN KEY (industry_id) REFERENCES industries(industry_id),
     FOREIGN KEY (sector_id) REFERENCES sectors(sector_id)
 );
@@ -78,6 +80,16 @@ CREATE TABLE classification_rules (
 CREATE UNIQUE INDEX IF NOT EXISTS classification_rules_unique
 ON classification_rules (match_field, match_value, industry_id);
 
+CREATE TABLE committee_classifications (
+  fec_committee_id TEXT PRIMARY KEY,
+  industry_id INTEGER NOT NULL,
+  sector_id INTEGER NOT NULL,
+  confidence TEXT NOT NULL CHECK (confidence IN ('high','medium','low')),
+  source TEXT NOT NULL, -- 'manual', 'fec', 'rule'
+  FOREIGN KEY (industry_id) REFERENCES industries(id),
+  FOREIGN KEY (sector_id) REFERENCES sectors(id)
+);
+
 CREATE TABLE contributions_classified (
     raw_contribution_id INTEGER PRIMARY KEY,
     industry_id INTEGER,
@@ -110,4 +122,10 @@ CREATE TABLE candidate_sector_totals (
 
     FOREIGN KEY (sector_id)
         REFERENCES sectors(sector_id)
+);
+
+CREATE TABLE data_updates (
+    table_name TEXT PRIMARY KEY,
+    last_updated TIME,
+    description STRING
 );
