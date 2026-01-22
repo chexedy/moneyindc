@@ -36,20 +36,22 @@ CREATE TABLE industries (
 );
 
 CREATE TABLE committees (
-    fec_committee_id TEXT PRIMARY KEY,
-    name TEXT NOT NULL,
-    connected_organization TEXT,
-    committee_type TEXT,
-    industry_id INTEGER,
-    sector_id INTEGER,
-    is_current BOOLEAN,
-    is_stub BOOLEAN,
+    fec_committee_id TEXT PRIMARY KEY, -- FEC ID (e.g., C00123456)
+    name TEXT NOT NULL,                -- Committee Name
+    treasurer_name TEXT,               -- Treasurer (Useful for accountability)
+    designation TEXT,                  -- (P)rincipal, (D)esignated, (J)oint, etc.
+    committee_type TEXT,               -- (H)ouse, (S)enate, (Q) PAC, etc.
+    interest_group_category TEXT,      -- (C)orporation, (L)abor, (T)rade Assoc, etc.
+    connected_organization TEXT,       -- The "Sponsor" (e.g., Google LLC)
+    candidate_id TEXT,                 -- Direct link to a Rep/Senator ID
+    industry_id INTEGER,               -- Your internal classification
+    sector_id INTEGER,                 -- Your internal classification
     
     FOREIGN KEY (industry_id) REFERENCES industries(industry_id),
     FOREIGN KEY (sector_id) REFERENCES sectors(sector_id)
 );
 
-CREATE TABLE contributions_raw (
+CREATE TABLE contributions (
     id INTEGER PRIMARY KEY,
     fec_transaction_id TEXT UNIQUE NOT NULL,
     candidate_id INTEGER NOT NULL,
