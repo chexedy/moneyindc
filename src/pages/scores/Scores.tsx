@@ -1,5 +1,5 @@
 import "./Scores.css";
-import { SCORE_TIERS } from "../data/scores";
+import { SCORE_TIERS } from "../../data/scores";
 
 export default function Scores() {
     return (

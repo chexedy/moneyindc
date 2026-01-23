@@ -28,7 +28,8 @@
   border-radius: 25px;
 }
 
-.body h1 {
+.body h1,
+.body h3 {
   font-size: 4vh;
 }
 
@@ -41,7 +42,8 @@
 }
 
 .body p,
-.body ul {
+.body ul,
+.body ol {
   font-size: 3vh;
 }
 

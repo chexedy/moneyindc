@@ -8,7 +8,7 @@ export default function Groups() {
             </div>
 
             <div className="body">
-                <p>Search various groups/organizations/PACs and see their total financial influence on these politicians.</p>
+                <p>Search various groups/organizations/PACs and see their total financial influence on these politicians. This feature will be made available soon. Stay tuned for updates!</p>
             </div>
         </div>
     )
