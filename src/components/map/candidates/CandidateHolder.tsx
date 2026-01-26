@@ -1,4 +1,4 @@
-import "./Candidate.css";
+import "./CandidateOther.css";
 import { CandidateInfo } from "../candidates";
 import { useQuery } from '@tanstack/react-query';
 

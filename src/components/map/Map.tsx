@@ -3,12 +3,18 @@ import "./Map.css";
 import maplibregl from "maplibre-gl";
 import { useState, useEffect, useRef } from "react";
 import { Candidate, CandidateHolder } from "./candidates";
+import Welcome from "../welcome/Welcome";
 
 export default function Map() {
     interface currentState {
         id: number | null;
         state: string;
         district: string | null;
+    }
+
+    const [showWelcome, setShowWelcome] = useState(localStorage.getItem("showWelcomeScreen") !== "false");
+    const onHideWelcome = () => {
+        setShowWelcome(false);
     }
 
     const [isCandidateOpen, setCandidateOpen] = useState(false);
@@ -280,6 +286,8 @@ export default function Map() {
     return (
         <div>
             <div ref={mapContainer} className="map-container" />
+
+            {showWelcome && (<Welcome onHide={onHideWelcome} />)}
 
             {isHolderOpen && (
                 <CandidateHolder state={current.state} closeHolder={closeHolder} setCurrentID={setCurrentID} />

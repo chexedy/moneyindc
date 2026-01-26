@@ -1,4 +1,4 @@
-import "./Candidate.css";
+import "./CandidateOther.css";
 import type { CandidateInfoProps } from "../../../data/props";
 import { PARTIES, STATE_2CHAR } from "../../../data/info";
 

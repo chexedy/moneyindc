@@ -84,7 +84,7 @@ export default function About() {
                 <ol>
                     <li><b>LD-203 & LD-2 Integration:</b> We match Lobbying Contribution reports with Lobbying Activity filings.</li>
                     <li><b>Issue Code Mapping:</b> We use official Senate issue codes (e.g., <i>DEF</i>, <i>PHA</i>) to categorize firms into broad sectors.</li>
-                    <li><b>Candidate Mapping:</b> We sync with the <i>@unitedstates</i> project to link FEC IDs to Bioguide IDs, ensuring data follows a politician across their career.</li>
+                    <li><b>Candidate Mapping:</b> We sync with <b>the @unitedstates project</b> to link FEC IDs to Bioguide IDs, ensuring data follows a politician across their career.</li>
                 </ol>
 
                 <br />
@@ -145,7 +145,7 @@ export default function About() {
                 <p>
                     For feedback or inquiries, please open an issue on the project's <a href="https://github.com/chexedy/moneyindc" target="_blank" rel="noreferrer">GitHub</a>.
                     <br /><br />
-                    &copy; {new Date().getFullYear()} chexedy incorporated (Real)
+                    &copy; {new Date().getFullYear()} <a href="https://chexedy.com/" target="_blank" rel="noreferrer">chexedy</a> incorporated (Real)
                 </p>
             </div>
         </div>

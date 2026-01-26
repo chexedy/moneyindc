@@ -1,0 +1,82 @@
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.welcome-modal {
+    background: var(--color3);
+    color: var(--color2);
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-modal h1 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.welcome-modal p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.welcome-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.checkbox-container {
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.enter-button {
+    background-color: var(--color2);
+    color: var(--color3);
+    border: none;
+    padding: 12px 40px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.enter-button:active {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+    .welcome-modal {
+        max-width: 600px;
+    }
+
+    .welcome-modal h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-modal p {
+        font-size: 1.1rem;
+    }
+
+    .checkbox-container {
+        font-size: 1.2rem;
+    }
+}
