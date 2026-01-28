@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { Home, Data, Groups, About, NotFound } from "./pages";
+import { Home, Data, Search, About, NotFound } from "./pages";
 import { Navbar } from "./components";
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
         <main className="content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/groups" element={<Groups />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/data" element={<Data />} />
             {/* <Route path="/scores" element={<Scores />} /> */}
             <Route path="/about" element={<About />} />

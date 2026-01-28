@@ -60,7 +60,7 @@ export default function CandidateHolder({ state, closeHolder, setCurrentID }: { 
                 ))}
             </div>
 
-            <button className="close-button" onClick={closeHolder}>
+            <button className="close-button2" onClick={closeHolder}>
                 Close List
             </button>
         </div>

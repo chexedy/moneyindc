@@ -117,11 +117,12 @@ export default function Candidate({
                 </section>
             </div>
 
-            <h6 className="candidate-id">BioGuide ID: {bioguide_id} | FEC ID: {fec_id}</h6>
-
-            <button className="close-button" onClick={closeCandidate}>
-                Close Profile
-            </button>
+            <div className="candidate-footer-row">
+                <h6 className="candidate-id">BioGuide: {bioguide_id} | FEC: {fec_id}</h6>
+                <button className="close-button" onClick={closeCandidate}>
+                    Close Profile
+                </button>
+            </div>
         </div>
     );
 }

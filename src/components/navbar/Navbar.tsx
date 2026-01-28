@@ -21,7 +21,7 @@ export default function Navbar() {
 
             <div className={`navbar-buttons ${menuOpen ? "open" : ""}`}>
                 <Link to="/" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Home</Link>
-                <Link to="/groups" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Groups</Link>
+                <Link to="/search" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Search</Link>
                 <Link to="/data" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Data</Link>
                 {/* <Link to="/scores" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">Scores</Link> */}
                 <Link to="/about" onClick={() => setMenuOpen(false)} className="navbar-buttons-link">About</Link>

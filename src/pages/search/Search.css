@@ -1,0 +1,48 @@
+.search-wrapper {
+    margin: 3vh 0;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 2vh;
+    border-radius: 15px;
+    border: 2px solid var(--color3);
+    background-color: var(--color3);
+    color: var(--color2);
+    font-size: 2.5vh;
+    transition: border-color 0.2s ease;
+}
+
+.search-wrapper input:focus {
+    outline: none;
+    border-color: var(--color2);
+}
+
+.search-wrapper input::placeholder {
+    color: var(--color1);
+    opacity: 0.5;
+}
+
+.committee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2vh;
+    margin-top: 4vh;
+}
+
+.status-footer {
+    margin-top: 4vh;
+    padding-top: 3vh;
+    border-top: 1px solid var(--color3);
+}
+
+@media (max-width: 1024px) {
+    .search-wrapper input {
+        font-size: 2vh;
+        padding: 1.5vh;
+    }
+
+    .committee-grid {
+        grid-template-columns: 1fr;
+    }
+}

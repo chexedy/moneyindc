@@ -59,7 +59,18 @@
     border-radius: 15px;
 }
 
-/* Tablet / iPad (Portrait & Landscape) */
+.close-button2 {
+    margin-top: auto;
+    align-self: center;
+    background: red;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color2);
+    padding: 0.75vh 2vh;
+    border-radius: 15px;
+}
+
 @media screen and (min-width: 481px) and (max-width: 1024px) {
     .candidate-holder {
         top: 50%;
@@ -67,7 +78,6 @@
         transform: translate(-50%, -50%);
         bottom: auto;
 
-        /* Use more screen real estate on iPad */
         width: 60vw;
         max-width: 600px;
         height: auto;
@@ -79,7 +89,6 @@
 
     .candidate-holder h1 {
         font-size: 2.5rem;
-        /* Bigger header for the bigger screen */
     }
 
     .candidate-info h2 {
@@ -91,7 +100,6 @@
     }
 }
 
-/* iPhone / Small Phones */
 @media screen and (max-width: 480px) {
     .candidate-holder {
         width: 90vw;
