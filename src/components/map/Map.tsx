@@ -281,7 +281,7 @@ export default function Map() {
 
                 const stateAbbr = feature.properties.id.substring(0, 2);
                 const districtNum = feature.properties.id.substring(2);
-                const districtIdentifier = `${stateAbbr}-${districtNum}`;
+                // const districtIdentifier = `${stateAbbr}-${districtNum}`;
 
                 if (isSelectionMode) {
                     setCurrent({ id: null, state: stateAbbr, district: districtNum });
