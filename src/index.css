@@ -73,7 +73,8 @@
   }
 
   .body p,
-  .body ul {
+  .body ul,
+  .body ol {
     font-size: 2vh;
   }
 }

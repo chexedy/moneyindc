@@ -1,3 +1,9 @@
 .sector-details {
     font-size: 3vh;
 }
+
+@media (max-width: 1024px) {
+    .sector-details {
+        font-size: 2vh;
+    }
+}

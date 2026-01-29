@@ -4,18 +4,18 @@ export default function Data() {
     return (
         <div className="data">
             <div className="title">
-                <h1>Campaign Data</h1>
+                <h1>Overall Data</h1>
             </div>
 
             <div className="body">
-                <h3>Campaign Overview</h3>
+                <h3>Entire Congress Overview</h3>
                 <p>
-                    These are placeholders, the actual data is coming soon!
+                    This data goes back to 2021, as it is the oldest year current office holders began their term. <br /> These are placeholders, the actual data is coming soon!
                 </p>
 
                 <div className="stats-grid">
                     <div className="stat-card">
-                        <span className="stat-label">Total Spent 2024</span>
+                        <span className="stat-label">Total Spent</span>
                         <span className="stat-value">$6.7B</span>
                     </div>
                     <div className="stat-card">

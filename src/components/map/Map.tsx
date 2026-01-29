@@ -1,7 +1,10 @@
 import "./Map.css";
-
 import maplibregl from "maplibre-gl";
+
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { Users } from "lucide-react";
+
 import { Candidate, CandidateHolder } from "./candidates";
 import Welcome from "../welcome/Welcome";
 
@@ -276,28 +279,86 @@ export default function Map() {
 
                 map.fitBounds(bounds, { padding: 40, zoom: 8 });
 
-                setHolderOpen(false);
-                setCandidateOpen(true);
-                setCurrent({ id: null, state: e.features?.[0].properties.id.substring(0, 2), district: e.features?.[0].properties.id.substring(2) });
+                const stateAbbr = feature.properties.id.substring(0, 2);
+                const districtNum = feature.properties.id.substring(2);
+                const districtIdentifier = `${stateAbbr}-${districtNum}`;
+
+                if (isSelectionMode) {
+                    setCurrent({ id: null, state: stateAbbr, district: districtNum });
+                    setCandidateOpen(true);
+                } else {
+                    setHolderOpen(false);
+                    setCurrent({ id: null, state: stateAbbr, district: districtNum });
+                    setCandidateOpen(true);
+                }
             });
         });
     }, []);
 
+    const navigate = useNavigate();
+
+    const [isSelectionMode, setIsSelectionMode] = useState(false);
+    const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+    const handleCandidatePick = (id: number | string) => {
+        const identifier = id.toString();
+
+        if (isSelectionMode) {
+            const newSelection = [...selectedIds, identifier];
+            setSelectedIds(newSelection);
+
+            if (newSelection.length === 2) {
+                navigate(`/compare?c1=${newSelection[0]}&c2=${newSelection[1]}`);
+                setIsSelectionMode(false);
+                setSelectedIds([]);
+            }
+
+            setHolderOpen(false);
+            setCandidateOpen(false);
+        } else {
+            if (typeof id === 'number') {
+                setCurrentID(id);
+            } else if (identifier.includes("-")) {
+                const [s, d] = identifier.split("-");
+                setCurrent({ id: null, state: s, district: d });
+                setCandidateOpen(true);
+            }
+        }
+    };
     return (
         <div>
             <div ref={mapContainer} className="map-container" />
 
+            <button
+                className={`compare-mode-btn ${isSelectionMode ? 'active' : ''}`}
+                onClick={() => {
+                    setIsSelectionMode(!isSelectionMode);
+                    setSelectedIds([]);
+                }}
+            >
+                <Users size={20} />
+                {isSelectionMode ? `Pick ${2 - selectedIds.length} more...` : "Compare"}
+            </button>
+
             {showWelcome && (<Welcome onHide={onHideWelcome} />)}
 
             {isHolderOpen && (
-                <CandidateHolder state={current.state} closeHolder={closeHolder} setCurrentID={setCurrentID} />
+                <CandidateHolder state={current.state} closeHolder={closeHolder} setCurrentID={handleCandidatePick} />
+
             )}
 
             {isCandidateOpen && (
-                <Candidate id={current.id} state={current.state} district={current.district} closeCandidate={closeCandidate} />
+                <Candidate
+                    id={current.id}
+                    state={current.state}
+                    district={current.district}
+                    closeCandidate={closeCandidate}
+                    onSelect={isSelectionMode ? (idFromDb) => {
+                        const finalId = idFromDb || `${current.state}-${current.district}`;
+                        handleCandidatePick(finalId);
+                    } : undefined}
+                />
             )}
-
-            {/* <Candidate id={61} state="NJ" district={null} closeCandidate={closeCandidate} /> */}
         </div>
     )
 }

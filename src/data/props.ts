@@ -3,6 +3,7 @@ export type CandidateProps = {
     state: string;
     district: string | null;
     closeCandidate: () => void;
+    onSelect?: (id: number) => void;
 }
 
 export type CandidateInfoProps = {
@@ -14,3 +15,8 @@ export type CandidateInfoProps = {
     office: "SENATE" | "HOUSE" | string;
     setCurrentID: (id: number) => void;
 };
+
+export type CompareProps = {
+    candidate_1: CandidateProps;
+    candidate_2: CandidateProps;
+}

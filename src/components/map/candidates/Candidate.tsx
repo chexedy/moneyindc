@@ -7,9 +7,12 @@ export default function Candidate({
     state,
     district,
     closeCandidate,
+    onSelect
 }: CandidateProps) {
     const { data, isLoading, isError } = useQuery({
         queryKey: ["candidate", id ?? `${state}-${district}`],
+        staleTime: Infinity,
+        gcTime: Infinity,
         enabled: !!(id || (state && district !== null)),
         queryFn: async () => {
             const params = new URLSearchParams();
@@ -34,27 +37,38 @@ export default function Candidate({
         );
     }
 
-    if (isError || data.error || !data) {
+    if (isError || data?.error || !data?.profile) {
         return (
             <div className="candidate-profile">
                 <div className="candidate-header-row">
-                    <div className="candidate-header"><h2>Error loading candidate data.</h2></div>
+                    <div className="candidate-header"><h2>Error loading data.</h2></div>
                 </div>
                 <button className="close-button" onClick={closeCandidate}>Close Profile</button>
             </div>
         );
     }
 
-    const { name, party, office, bioguide_id, fec_id, latest_cycle } = data.profile;
+    const { name, party, office, bioguide_id, fec_id, latest_cycle, id: profileDbId } = data.profile;
     const displayDistrict = district === "00" ? "01" : district;
 
     return (
         <div className="candidate-profile">
+            {onSelect && (
+                <div className="selection-mode-banner">
+                    <button
+                        className="select-confirm-btn"
+                        onClick={() => onSelect(profileDbId || id)}
+                    >
+                        Pick {name.split(' ')[0]} for Comparison
+                    </button>
+                </div>
+            )}
+
             <div className="candidate-header-row">
                 <div className="candidate-header">
                     <img
                         src={`https://unitedstates.github.io/images/congress/450x550/${bioguide_id}.jpg`}
-                        alt={`${name}'s Portrait`}
+                        alt={name}
                         className="candidate-image"
                         onError={({ currentTarget }) => {
                             currentTarget.onerror = null;
@@ -112,7 +126,6 @@ export default function Candidate({
                         <div className="bar-wrapper full-width-bar"><span>Construction</span> <span>$00,000</span></div>
                         <div className="bar-wrapper full-width-bar"><span>Communications</span> <span>$00,000</span></div>
                         <div className="bar-wrapper full-width-bar"><span>Education</span> <span>$00,000</span></div>
-                        <div className="bar-wrapper full-width-bar"><span>Labor</span> <span>$00,000</span></div>
                     </div>
                 </section>
             </div>

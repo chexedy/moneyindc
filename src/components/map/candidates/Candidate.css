@@ -217,6 +217,31 @@ hr {
     margin: 0;
 }
 
+.selection-mode-banner {
+    background: red;
+    margin: -20px -20px 20px -20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.select-confirm-btn {
+    background: var(--color2);
+    color: red;
+    border: none;
+    padding: 10px 25px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.select-confirm-btn:hover {
+    transform: scale(1.05);
+}
+
 @media (max-width: 1024px) {
     .candidate-profile {
         width: 95vw;
